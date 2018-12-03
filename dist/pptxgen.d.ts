@@ -71,7 +71,7 @@ declare namespace PptxGenJS {
     addText(textString: string, options: TextOptions): Slide;
   }
 
-  class PptxGenJS {
+  export default class PptxGenJS {
     // Presentation Props
     getLayout(): string;
     setBrowser(isBrowser: boolean): void;
@@ -94,4 +94,4 @@ declare namespace PptxGenJS {
   }
 }
 
-export = PptxGenJS.PptxGenJS;
+export = PptxGenJS;
