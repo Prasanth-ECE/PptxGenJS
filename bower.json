@@ -6,7 +6,7 @@
   ],
   "dependencies": {
     "jquery": "^3.3.1",
-    "jszip": "^3.1.5"
+    "jszip": "2.6.1"
   },
   "authors": [
     "Brent Ely <https://github.com/gitbrent>"
