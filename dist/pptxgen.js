@@ -1799,6 +1799,7 @@ var PptxGenJS = function(){
 		gObjPptx.slides.forEach(function(slide){ createMediaFiles(slide, zip, arrChartPromises); });
 		createMediaFiles(gObjPptx.masterSlide, zip, arrChartPromises);
 
+		var strExportName = ((gObjPptx.fileName.toLowerCase().indexOf('.ppt') > -1) ? gObjPptx.fileName : gObjPptx.fileName+gObjPptx.fileExtn);
 		let content = zip.generate({type:'blob'})
 		writeFileToBrowser(strExportName, content);
 
