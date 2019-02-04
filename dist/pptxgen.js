@@ -1821,7 +1821,8 @@ var PptxGenJS = function(){
 				}
 			}
 			else {
-				zip.generateAsync({type:'blob'}).then(function(content){ writeFileToBrowser(strExportName, content); });
+				let content = zip.generate({type:'blob'})
+				writeFileToBrowser(strExportName, content);
 			}
 		})
 		.catch(function(strErr){
