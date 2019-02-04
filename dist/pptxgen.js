@@ -1799,35 +1799,37 @@ var PptxGenJS = function(){
 		gObjPptx.slides.forEach(function(slide){ createMediaFiles(slide, zip, arrChartPromises); });
 		createMediaFiles(gObjPptx.masterSlide, zip, arrChartPromises);
 
+		let content = zip.generate({type:'blob'})
+		writeFileToBrowser(strExportName, content);
+
 		// STEP 3: Wait for Promises (if any) then generate the PPTX file
-		Promise.all( arrChartPromises )
-		.then(function(arrResults){
-			var strExportName = ((gObjPptx.fileName.toLowerCase().indexOf('.ppt') > -1) ? gObjPptx.fileName : gObjPptx.fileName+gObjPptx.fileExtn);
-			if ( outputType && JSZIP_OUTPUT_TYPES.indexOf(outputType) >= 0 ) {
-				zip.generateAsync({ type:outputType }).then(gObjPptx.saveCallback);
-			}
-			else if ( NODEJS && !gObjPptx.isBrowser ) {
-				if ( gObjPptx.saveCallback ) {
-					if ( strExportName.indexOf('http') == 0 ) {
-						zip.generateAsync({type:'nodebuffer'}).then(function(content){ gObjPptx.saveCallback(content); });
-					}
-					else {
-						zip.generateAsync({type:'nodebuffer'}).then(function(content){ fs.writeFile(strExportName, content, function(){ gObjPptx.saveCallback(strExportName); } ); });
-					}
-				}
-				else {
-					// Starting in late 2017 (Node ~8.9.1), `fs` requires a callback so use a dummy func
-					zip.generateAsync({type:'nodebuffer'}).then(function(content){ fs.writeFile(strExportName, content, function(){} ); });
-				}
-			}
-			else {
-				let content = zip.generate({type:'blob'})
-				writeFileToBrowser(strExportName, content);
-			}
-		})
-		.catch(function(strErr){
-			console.error(strErr);
-		});
+		// Promise.all( arrChartPromises )
+		// .then(function(arrResults){
+		// 	var strExportName = ((gObjPptx.fileName.toLowerCase().indexOf('.ppt') > -1) ? gObjPptx.fileName : gObjPptx.fileName+gObjPptx.fileExtn);
+		// 	if ( outputType && JSZIP_OUTPUT_TYPES.indexOf(outputType) >= 0 ) {
+		// 		zip.generateAsync({ type:outputType }).then(gObjPptx.saveCallback);
+		// 	}
+		// 	else if ( NODEJS && !gObjPptx.isBrowser ) {
+		// 		if ( gObjPptx.saveCallback ) {
+		// 			if ( strExportName.indexOf('http') == 0 ) {
+		// 				zip.generateAsync({type:'nodebuffer'}).then(function(content){ gObjPptx.saveCallback(content); });
+		// 			}
+		// 			else {
+		// 				zip.generateAsync({type:'nodebuffer'}).then(function(content){ fs.writeFile(strExportName, content, function(){ gObjPptx.saveCallback(strExportName); } ); });
+		// 			}
+		// 		}
+		// 		else {
+		// 			// Starting in late 2017 (Node ~8.9.1), `fs` requires a callback so use a dummy func
+		// 			zip.generateAsync({type:'nodebuffer'}).then(function(content){ fs.writeFile(strExportName, content, function(){} ); });
+		// 		}
+		// 	}
+		// 	else {
+		// 		zip.generateAsync({type:'blob'}).then(function(content) { writeFileToBrowser(strExportName, content) })
+		// 	}
+		// })
+		// .catch(function(strErr){
+		// 	console.error(strErr);
+		// });
 	}
 
 	function writeFileToBrowser(strExportName, content) {
