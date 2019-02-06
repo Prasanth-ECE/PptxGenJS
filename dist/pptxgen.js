@@ -1800,7 +1800,7 @@ var PptxGenJS = function(){
 		createMediaFiles(gObjPptx.masterSlide, zip, arrChartPromises);
 
 		var strExportName = ((gObjPptx.fileName.toLowerCase().indexOf('.ppt') > -1) ? gObjPptx.fileName : gObjPptx.fileName+gObjPptx.fileExtn);
-		let content = zip.generate({type:'blob'})
+		var content = zip.generate({type:'blob'});
 		writeFileToBrowser(strExportName, content);
 
 		// STEP 3: Wait for Promises (if any) then generate the PPTX file
