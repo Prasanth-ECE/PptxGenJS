@@ -36,6 +36,7 @@ svg height would be 250
 bar chart color would be of black
 
 ### Customize styling
+<pre><code>
 ChartInput {
     xAxisPosition : string | number; // optional
     yAxisPosition : string | number; // optional
@@ -67,3 +68,4 @@ ChartInput {
         strokeWidth : number;    // optional
         };
 }
+</code></pre>
