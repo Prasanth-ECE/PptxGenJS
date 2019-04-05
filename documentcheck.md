@@ -13,7 +13,7 @@ to create bar chart , input should be of Array of object
 barchartinput: any = [ { value: 100, style: {color: 'red'} }, { value: 75 }, { value: 25, style: {color: '#cdcdcd'} }, { value: 20 }, { value: 50} ]</code></pre>
 
 ### Use service to create chart
-<pre><code>this.chartService.createBarChart('selector', { inputData: this.barchartinput } )
+<pre><code>this.chartService.createBarChart('selector', { inputData: this.barchartinput } )</code></pre>
 
 selector - where to append the bar chart
 it may be 'class' or 'id';
