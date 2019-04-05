@@ -2,15 +2,18 @@
 
 ## Using barChart Service
 Inject the service in your component
-import { chartService } from '../services/bar-chart-service'; // path may vary 
+<pre><code>
+import { chartService } from '../services/bar-chart-service'; // path may vary
+</code></pre>
 
 to create bar chart , input should be of Array of object
 
 ### Format of input for baarchart
-barchartinput: any = [ { value: 100 }, { value: 75 }, { value: 25 }, { value: 20 }, { value: 50} ]
+<pre><code>barchartinput: any = [ { value: 100 }, { value: 75 }, { value: 25 }, { value: 20 }, { value: 50} ] // or
+barchartinput: any = [ { value: 100, style: {color: 'red'} }, { value: 75 }, { value: 25, style: {color: '#cdcdcd'} }, { value: 20 }, { value: 50} ]</code></pre>
 
 ### Use service to create chart
-this.chartService.createBarChart('selector', { inputData: this.barchartinput } )
+<pre><code>this.chartService.createBarChart('selector', { inputData: this.barchartinput } )
 
 selector - where to append the bar chart
 it may be 'class' or 'id';
@@ -18,10 +21,10 @@ it may be 'class' or 'id';
 if you want to append the bar chart to particular &lt;div class="classsvggtoappend"&gt; or &lt;div id="idsvgtoappend"&gt;
 it should be 
 
-this.chartService.createBarChart('.classsvggtoappend'  - class="classsvggtoappend"
+<pre><code>this.chartService.createBarChart('.classsvggtoappend'  - class="classsvggtoappend"
 
 this.chartService.createBarChart('#idsvgtoappend'  - class="idsvgtoappend"
-
+</code></pre>
 
 That's it bar chart will get generated to the selector
 
