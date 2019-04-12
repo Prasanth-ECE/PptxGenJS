@@ -2,14 +2,15 @@
 
 ## Using barChart Service
 Inject the service in your component
-<pre><code>
-import { chartService } from '../services/bar-chart-service'; // path may vary
-</code></pre>
+<pre><code>import { chartService } from '../services/bar-chart-service'; // path may vary</code></pre>
 
 to create bar chart , input should be of Array of object
 
-### Format of input for baarchart
-<pre><code>barchartinput: any = [ { value: 100 }, { value: 75 }, { value: 25 }, { value: 20 }, { value: 50} ] // or
+### Format of input for barchart
+<pre><code>barchartinput: any = [ { value: 100 }, { value: 75 }, { value: 25 }, { value: 20 }, { value: 50} ]
+
+// or
+
 barchartinput: any = [ { value: 100, style: {color: 'red'} }, { value: 75 }, { value: 25, style: {color: '#cdcdcd'} }, { value: 20 }, { value: 50} ]</code></pre>
 
 ### Use service to create chart
