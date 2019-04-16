@@ -50,7 +50,7 @@ you need to import Accordion module in app.module.ts:
 </table>
 
 ### using loop
-<pre><code>    &lt;accordion [openAll]="true"&gt; // pass input in boolean
+<pre><code>    &lt;accordion&gt; // you can pass input in boolean
         &lt;expansion-pane *ngFor="let value of values"&gt; // 
             &lt;expansion-panel-header [open]="value.open"&gt; // to open particular (input of boolean)
                 {{value.header}}
